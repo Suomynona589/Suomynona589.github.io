@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Hub</title>
+  <style>
+    /* Basic styles just to make it readable */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+      color: #333;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .quiz-card {
+      border: 1px solid #ccc;
+      padding: 12px;
+      margin: 10px 0;
+      background: #fff;
+      border-radius: 6px;
+    }
+    .quiz-actions {
+      margin-top: 10px;
+    }
+    button {
+      margin: 4px;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+    #builder-container, #quiz-container {
+      border: 1px solid #ccc;
+      padding: 12px;
+      margin-top: 20px;
+      background: #fff;
+      border-radius: 6px;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz Hub</h1>
+
+  <div id="home-page">
+    <h2>Available Quizzes</h2>
+    <div id="quiz-list">
+      <!-- Quizzes will be injected here -->
+    </div>
+
+    <!-- Builder card -->
+    <div class="quiz-card" id="builder-card">
+      <h3>Quiz Builder <span id="builder-lock">🔒</span></h3>
+      <p>Create your own quizzes (access code required).</p>
+      <button id="open-builder">Open Builder</button>
+    </div>
+  </div>
+
+  <div id="quiz-container" style="display:none;">
+    <h2 id="quiz-title"></h2>
+    <div id="question-box"></div>
+    <div id="options-box"></div>
+    <div class="quiz-actions">
+      <button id="nextBtn">Next ➡️</button>
+      <button id="leaveBtn">Leave Quiz</button>
+    </div>
+    <div id="result-box"></div>
+  </div>
+
+  <div id="builder-container" style="display:none;">
+    <h2>Quiz Builder</h2>
+
+    <label for="quiz-title-input">Quiz Title:</label>
+    <input type="text" id="quiz-title-input">
+
+    <div id="questions-container"></div>
+
+    <div class="builder-actions">
+      <button id="add-question">➕ New Question</button>
+      <button id="test-quiz">Test Quiz</button>
+      <button id="burn-toggle">Unlock Burn 🔒</button>
+      <button id="burn-quiz" disabled>Burn Into Code</button>
+      <button id="exit-builder">Exit Builder</button>
+    </div>
+
+    <div id="burn-passcode" style="display:none;">
+      <label for="builder-passcode">Enter burn code:</label>
+      <input type="text" id="builder-passcode" placeholder="••••">
+      <span id="passcode-status">Burn locked 🔒</span>
+    </div>
+
+    <pre id="output"></pre>
+  </div>
+
+  <!-- Link to your JS file -->
+  <script src="script.js"></script>
+</body>
+</html>
